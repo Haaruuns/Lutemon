@@ -25,4 +25,10 @@ public class MainActivity extends AppCompatActivity {
     public void mathEXAm() {
         System.out.println("5 is bigger than 3");
     }
+
+    public void enemy() {
+    }
+}
+    public void enemy() {
+    }
 }
