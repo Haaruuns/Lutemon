@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void mathEXAm() {
+        System.out.println("5 is bigger than 3");
+    }
 }
