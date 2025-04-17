@@ -15,7 +15,7 @@ public class Lutemon {
 
     protected int wins;
     protected int losses;
-    protected ImageView picture;
+    protected int image;
 
     public Lutemon(String name, String color, int attack, int defense, int maxHealth) {
         this.name = name;
@@ -30,8 +30,35 @@ public class Lutemon {
         this.losses = 0;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getColor() {
+        return color;
+    }
 
+    public int getAttack() {
+        return attack;
+    }
 
+    public int getDefense() {
+        return defense;
+    }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public int getImage() {
+        return image;
+    }
 }
