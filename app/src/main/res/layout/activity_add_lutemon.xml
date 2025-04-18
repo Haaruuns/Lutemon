@@ -7,6 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".AddLutemonActivity">
 
+    <ImageView
+        android:id="@+id/Background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/activity_tausta" />
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="370dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lutemon_logo" />
+
     <Button
         android:id="@+id/AddLutemonButton"
         android:layout_width="wrap_content"
@@ -18,59 +43,68 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LutemonTypeRadioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/LutemonTypeRadioGroup"
+        app:layout_constraintVertical_bias="0.634" />
 
     <RadioGroup
         android:id="@+id/LutemonTypeRadioGroup"
-        android:layout_width="308dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="200dp"
+        android:gravity="left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/BlackRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:background="#84C39393"
             android:text="Black" />
 
         <RadioButton
             android:id="@+id/WhiteRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:background="#84C39393"
             android:text="White" />
 
         <RadioButton
             android:id="@+id/GreenRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:background="#84C39393"
             android:text="Green" />
 
         <RadioButton
             android:id="@+id/PinkRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:background="#84C39393"
             android:text="Pink" />
 
         <RadioButton
             android:id="@+id/OrangeRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:background="#84C39393"
             android:text="Orange" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/LutemonNameEdit"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:ems="10"
-        android:hint="Give Lutemon a name \n\n"
+        android:hint="Name your Lutemon..."
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/AddLutemonButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LutemonTypeRadioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/Logo" />
 
     <Button
         android:id="@+id/BackToMenu"
@@ -82,5 +116,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddLutemonButton" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="278dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Background"
+        app:srcCompat="@drawable/lutemon_craft" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft=""
+        android:layout_marginTop="24dp"
+        android:background="#74BFBFBF"
+        android:fontFamily="sans-serif-light"
+        android:text="Choose Your Color. Shape Your Power."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="226dp"
+        android:layout_height="419dp"
+        app:srcCompat="@drawable/white_lutemon"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="143dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
