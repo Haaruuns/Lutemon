@@ -26,7 +26,7 @@
         android:layout_height="104dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -92,19 +92,6 @@
             android:text="Orange" />
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/LutemonNameEdit"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:hint="Name your Lutemon..."
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo" />
 
     <Button
         android:id="@+id/BackToMenu"
@@ -118,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AddLutemonButton" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/CraftLogo"
         android:layout_width="278dp"
         android:layout_height="63dp"
         android:layout_marginTop="80dp"
@@ -128,25 +115,124 @@
         app:srcCompat="@drawable/lutemon_craft" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft=""
-        android:layout_marginTop="24dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="12dp"
         android:background="#74BFBFBF"
         android:fontFamily="sans-serif-light"
         android:text="Choose Your Color. Shape Your Power."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/CraftLogo" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/WhiteLutemon"
         android:layout_width="226dp"
         android:layout_height="419dp"
-        app:srcCompat="@drawable/white_lutemon"
-        tools:layout_editor_absoluteX="165dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="@+id/Background"
+        app:layout_constraintTop_toBottomOf="@+id/CraftLogo"
+        app:srcCompat="@drawable/white_lutemon" />
+
+    <ImageView
+        android:id="@+id/BlackLutemon"
+        android:visibility="gone"
+        android:layout_width="226dp"
+        android:layout_height="419dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="@+id/Background"
+        app:srcCompat="@drawable/black_lutemon"
+        app:layout_constraintTop_toBottomOf="@+id/CraftLogo"
         tools:layout_editor_absoluteY="143dp" />
+
+    <ImageView
+        android:id="@+id/OrangeLutemon"
+        android:layout_width="226dp"
+        android:layout_height="419dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="@+id/Background"
+        app:srcCompat="@drawable/orange_lutemon"
+        app:layout_constraintTop_toBottomOf="@+id/CraftLogo"
+        tools:layout_editor_absoluteY="156dp" />
+
+    <ImageView
+        android:id="@+id/PinkLutemon"
+        android:visibility="gone"
+        android:layout_width="226dp"
+        android:layout_height="419dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="@+id/Background"
+        app:srcCompat="@drawable/pink_lutemon"
+        app:layout_constraintTop_toBottomOf="@+id/CraftLogo"
+        tools:layout_editor_absoluteY="143dp" />
+    <ImageView
+        android:id="@+id/GreenLutemon"
+        android:visibility="gone"
+        android:layout_width="226dp"
+        android:layout_height="419dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="@+id/Background"
+        app:srcCompat="@drawable/green_lutemon"
+        app:layout_constraintTop_toBottomOf="@+id/CraftLogo"
+        tools:layout_editor_absoluteY="143dp" />
+
+
+
+    <EditText
+        android:id="@+id/LutemonNameEdit"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Name your Lutemon..."
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Logo" />
+
+    <TextView
+        android:id="@+id/Fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:background="#6FDE2D2D"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorLink="#A62B2B"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/AddLutemonButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:background="#6F14A205"
+        android:gravity="center"
+        android:text=""
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorLink="#A62B2B"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/AddLutemonButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
