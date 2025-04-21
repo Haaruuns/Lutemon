@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="150dp"
     android:background="#2B2D30"
     android:orientation="horizontal">
 
@@ -21,8 +21,9 @@
         <TextView
             android:id="@+id/LutemonName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nimi (Väri) \n"
+            android:layout_height="29dp"
+            android:gravity="center"
+            android:text="Nimi  (Väri)"
             android:textColor="#827717"
             android:textStyle="bold" />
 
@@ -30,21 +31,21 @@
             android:id="@+id/LutemonAttack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hyökkäys : int"
+            android:text="Attack : int"
             android:textColor="#827717" />
 
         <TextView
             android:id="@+id/LutemonDefence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Puolustus: int"
+            android:text="Defense: int"
             android:textColor="#827717" />
 
         <TextView
             android:id="@+id/LutemonLife"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Elämä: int/int"
+            android:text="Life: int/int"
             android:textColor="#827717" />
 
         <TextView
