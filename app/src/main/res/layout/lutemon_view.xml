@@ -38,7 +38,7 @@
             android:id="@+id/LutemonDefence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Defens3e: int"
+            android:text="Defense: int"
             android:textColor="#827717" />
 
         <TextView
