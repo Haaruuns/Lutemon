@@ -31,4 +31,10 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListLutemonActivity.class);
         startActivity(intent);
     }
+    public void switchToTransferLutemonActivity(View view) {
+        Intent intent = new Intent(this, TabActivity.class);
+        startActivity(intent);
+    }
+
+
 }

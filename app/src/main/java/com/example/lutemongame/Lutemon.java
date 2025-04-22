@@ -61,4 +61,8 @@ public class Lutemon {
     public int getImage() {
         return image;
     }
+
+    public int getId() {
+        return id;
+    }
 }
