@@ -32,10 +32,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ListLutemonRV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="80dp" />
+        android:layout_width="412dp"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toBottomOf="@+id/Background"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/BackToMenu2"
@@ -47,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ListLutemonRV"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView5"
