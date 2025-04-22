@@ -24,7 +24,7 @@ public class ListLutemonActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_list_lutemon);
 
-        lutemonStorage = LutemonStorage.getInstance();
+        lutemonStorage = Home.getInstance();
         recyclerView = findViewById(R.id.ListLutemonRV);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

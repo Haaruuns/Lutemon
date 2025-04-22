@@ -77,23 +77,23 @@ public class AddLutemonActivity extends AppCompatActivity {
             errorMessage.setText("Failed attempt, make sure you've chosen your color and named your Lutemon");
         } else if(id == R.id.BlackRadioButton) {
             Black black = new Black(name);
-            LutemonStorage.getInstance().addLutemon(black);
+            Home.getInstance().addLutemon(black);
             successfulMessage(name);
         } else if (id == R.id.WhiteRadioButton) {
             White white = new White(name);
-            LutemonStorage.getInstance().addLutemon(white);
+            Home.getInstance().addLutemon(white);
             successfulMessage(name);
         } else if (id == R.id.GreenRadioButton) {
             Green green = new Green(name);
-            LutemonStorage.getInstance().addLutemon(green);
+            Home.getInstance().addLutemon(green);
             successfulMessage(name);
         } else if (id == R.id.PinkRadioButton) {
             Pink pink = new Pink(name);
-            LutemonStorage.getInstance().addLutemon(pink);
+            Home.getInstance().addLutemon(pink);
             successfulMessage(name);
         } else {
             Orange orange = new Orange(name);
-            LutemonStorage.getInstance().addLutemon(orange);
+            Home.getInstance().addLutemon(orange);
             successfulMessage(name);
         }
     }

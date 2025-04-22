@@ -3,18 +3,7 @@ package com.example.lutemongame;
 import java.util.ArrayList;
 
 public class LutemonStorage {
-    private ArrayList<Lutemon> lutemons = new ArrayList<>();
-    private static LutemonStorage lutemonStorage = null;
-
-    private LutemonStorage(){
-    }
-
-    public static LutemonStorage getInstance() {
-        if(lutemonStorage == null) {
-            lutemonStorage = new LutemonStorage();
-        }
-        return lutemonStorage;
-    }
+    protected ArrayList<Lutemon> lutemons = new ArrayList<>();
 
     public ArrayList<Lutemon> getLutemons() {
         return lutemons;

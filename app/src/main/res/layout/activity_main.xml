@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:onClick="startLoading"
-        android:text="Unleash the Battle!2"
+        android:text="Unleash the Battle!"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
