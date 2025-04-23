@@ -2,7 +2,10 @@ package com.example.lutemongame;
 
 import android.widget.ImageView;
 
-public class Lutemon {
+import java.io.Serializable;
+
+public class Lutemon implements Serializable{
+
     protected String name;
     protected String color;
     protected int attack;
