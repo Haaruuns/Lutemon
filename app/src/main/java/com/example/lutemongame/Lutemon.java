@@ -65,4 +65,8 @@ public class Lutemon {
     public int getId() {
         return id;
     }
+
+    public void increaseExperience() {
+        this.experience += 1;
+    }
 }
