@@ -82,6 +82,7 @@ public class HomeFragment extends Fragment {
 
                 if (selectedAddressId == R.id.TrainingRb) {
                     TrainingArea.getInstance().addLutemon(lutemon);
+                    lutemon.increaseExperience();
                     successMessage.setText(lutemon.getName() + " is now training hard to get stronger!");
                 } else {
                     BattleField.getInstance().addLutemon(lutemon);

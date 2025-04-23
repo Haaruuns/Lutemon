@@ -83,6 +83,7 @@ public class BattleFragment extends Fragment {
                     successMessage.setText(lutemon.getName() + " has returned home to rest.");
                 } else {
                     TrainingArea.getInstance().addLutemon(lutemon);
+                    lutemon.increaseExperience();
                     successMessage.setText(lutemon.getName() + " is now training hard to get stronger!");
                 }
             }
