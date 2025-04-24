@@ -127,6 +127,13 @@ public class StatsColorDistributionFragment extends Fragment {
 
             dataSet.setColors(colors);
             dataSet.setValueTextSize(20f);
+            dataSet.setValueTextColor(Color.parseColor("#0000FF"));
+            dataSet.setValueFormatter(new ValueFormatter() {
+                @Override
+                public String getFormattedValue(float value) {
+                    return String.format("%.1f%%",value);
+                }
+            });
 
             PieData data = new PieData(dataSet);
 
