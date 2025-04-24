@@ -2,7 +2,10 @@ package com.example.lutemongame;
 
 import android.widget.ImageView;
 
-public class Lutemon {
+import java.io.Serializable;
+
+public class Lutemon implements Serializable{
+
     protected String name;
     protected String color;
     protected int attack;
@@ -65,6 +68,7 @@ public class Lutemon {
     public int getId() {
         return id;
     }
+
     public void attack(Lutemon defender) {
         int bonus = (int) Math.random() * 2;
         int damage = this.attack + this.experience + bonus - defender.defense;
@@ -87,5 +91,9 @@ public class Lutemon {
     }
     public void resetHealth() {
         this.health = this.maxHealth;
+    }
+
+    public void increaseExperience() {
+        this.experience += 1;
     }
 }
