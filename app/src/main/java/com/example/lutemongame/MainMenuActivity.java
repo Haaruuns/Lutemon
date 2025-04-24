@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainMenuActivity extends AppCompatActivity {
-    private Button saveBtn, loadBtn;
+    private Button saveBtn, loadBtn, statsBtn;
     private TextView succesOrFailure;
 
     @Override
@@ -25,6 +25,7 @@ public class MainMenuActivity extends AppCompatActivity {
         saveBtn = findViewById(R.id.SaveBtn);
         loadBtn = findViewById(R.id.LoadBtn);
         succesOrFailure = findViewById(R.id.textMessage);
+        statsBtn = findViewById(R.id.StatsBtn);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -40,6 +41,13 @@ public class MainMenuActivity extends AppCompatActivity {
         loadBtn.setOnClickListener(v -> {
             String update = SaveAndLoad.loadGame(this);
             succesOrFailure.setText(update);
+        });
+
+
+        // Another way to change Activities
+        statsBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, StatsTabActivity.class);
+            startActivity(intent);
         });
     }
     public void switchToAddLutemonActivity(View view) {
