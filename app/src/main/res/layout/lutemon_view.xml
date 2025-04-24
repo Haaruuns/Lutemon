@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:background="#2B2D30"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/LutemonImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dp"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/LutemonName"
             android:layout_width="match_parent"
-            android:layout_height="29dp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:text="Nimi  (Väri)"
             android:textColor="#827717"
             android:textStyle="bold" />
@@ -55,4 +58,5 @@
             android:text="Kokemus: int"
             android:textColor="#827717" />
     </LinearLayout>
-</androidx.appcompat.widget.LinearLayoutCompat>
+
+</LinearLayout>

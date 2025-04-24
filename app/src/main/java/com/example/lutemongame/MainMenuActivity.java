@@ -35,6 +35,10 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TabActivity.class);
         startActivity(intent);
     }
+    public void switchToArena(View view) {
+        Intent intent = new Intent(this, BattleArenaActivity.class);
+        startActivity(intent);
+    }
 
 
 }

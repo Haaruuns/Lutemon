@@ -65,4 +65,27 @@ public class Lutemon {
     public int getId() {
         return id;
     }
+    public void attack(Lutemon defender) {
+        int bonus = (int) Math.random() * 2;
+        int damage = this.attack + this.experience + bonus - defender.defense;
+        defender.receiveDamage(damage);
+
+    }
+    public void receiveDamage(int damage) {
+        this.health -= damage;
+        if (this.health < 0) this.health = 0;
+    }
+    public boolean isAlive() {
+        return this.health > 0;
+    }
+    public void levelUp() {
+        this.wins += 1;
+        this.experience += 1;
+    }
+    public void addLoss() {
+        this.losses += 1;
+    }
+    public void resetHealth() {
+        this.health = this.maxHealth;
+    }
 }
