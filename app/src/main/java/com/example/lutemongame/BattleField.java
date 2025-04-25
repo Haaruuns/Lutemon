@@ -13,11 +13,5 @@ public class BattleField extends LutemonStorage {
         return instance;
     }
 
-    public Lutemon getLutemonWithId(int id) {
-        for(Lutemon lutemon : lutemons) {
-            if (lutemon.getId() == id) {
-                return lutemon;
-            }
-        } return null;
-    }
+
 }

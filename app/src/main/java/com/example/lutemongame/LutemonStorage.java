@@ -16,4 +16,12 @@ public class LutemonStorage {
         lutemons.remove(lutemon);
     }
 
+    public Lutemon getLutemonWithId(int id) {
+        for(Lutemon lutemon : lutemons) {
+            if (lutemon.getId() == id) {
+                return lutemon;
+            }
+        } return null;
+    }
+
 }
