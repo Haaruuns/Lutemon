@@ -12,6 +12,8 @@ public class LutemonStorage {
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
     }
-    // Haluanko myöhemmin poistaa lutemonin jos haluan teen removeLutemon metodin
+    public void removeLutemon(Lutemon lutemon) {
+        lutemons.remove(lutemon);
+    }
 
 }

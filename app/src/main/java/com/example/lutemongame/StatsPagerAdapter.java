@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.lutemongame.fragments.StatsAttributeFragment;
 import com.example.lutemongame.fragments.StatsColorDistributionFragment;
+import com.example.lutemongame.fragments.WinsAndLossesFragment;
 
 public class StatsPagerAdapter extends FragmentStateAdapter {
 
@@ -22,6 +23,8 @@ public class StatsPagerAdapter extends FragmentStateAdapter {
                 return new StatsAttributeFragment();
             case 1:
                 return new StatsColorDistributionFragment();
+            case 2:
+                return new WinsAndLossesFragment();
             default:
                 return new StatsAttributeFragment();
         }
@@ -29,6 +32,6 @@ public class StatsPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 }

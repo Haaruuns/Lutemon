@@ -15,8 +15,6 @@ public class TrainingArea extends LutemonStorage{
         return instance;
     }
 
-
-
     public Lutemon getLutemonWithId(int id) {
         for (Lutemon lutemon : lutemons) {
             if (lutemon.getId() == id) {
@@ -24,7 +22,5 @@ public class TrainingArea extends LutemonStorage{
             }
         } return null;
     }
-    public void removeLutemon(Lutemon lutemon) {
-        lutemons.remove(lutemon);
-    }
+
 }

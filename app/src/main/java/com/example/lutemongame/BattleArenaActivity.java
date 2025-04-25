@@ -45,57 +45,48 @@ public class BattleArenaActivity extends AppCompatActivity {
 
     public void beginBattle(View view) {
 
-    ArrayList<Lutemon> selected = adapter.getSelected();
-    log = findViewById(R.id.Log);
-    if (selected.size() != 2) {
-        log.setText("Please select 2 fighters!");
-        return;
-    }
-    Lutemon lutemonA = selected.get(0);
-    Lutemon lutemonB = selected.get(1);
-    log.setText("Follow the intense battle and the results from the terminal!");
+        ArrayList<Lutemon> selected = adapter.getSelected();
+        log = findViewById(R.id.Log);
+        if (selected.size() != 2) {
+            log.setText("Please select 2 fighters!");
+            return;
+        }
+        Lutemon lutemonA = selected.get(0);
+        Lutemon lutemonB = selected.get(1);
+        log.setText("Follow the intense battle and the results from the terminal!");
 
-        System.out.println("Preparing fighters " + lutemonA.getName() + " (" + lutemonA.getColor() + ")" + " and " + lutemonB.getName() + " (" + lutemonA.getColor() + ")");
+        System.out.println("Preparing fighters " + lutemonA.getName() + " (" + lutemonA.getColor() + ")" + " and " + lutemonB.getName() + " (" + lutemonB.getColor() + ")");
 
         System.out.println("The battle begins... \n");
-    while (lutemonA.isAlive() && lutemonB.isAlive()) {
-        System.out.println("1: " + lutemonA.getName() + " (" + lutemonA.getColor() + ") att: " + lutemonA.getAttack() + "; def: " + lutemonA.getDefense() + "; exp:" + lutemonA.getExperience() + "; health: " + lutemonA.getHealth() + "/" + lutemonA.getMaxHealth() + "\n");
-        System.out.println("2: " + lutemonB.getName() + " (" + lutemonB.getColor() + ") att: " + lutemonB.getAttack() + "; def: " + lutemonB.getDefense() + "; exp:" + lutemonB.getExperience() + "; health: " + lutemonB.getHealth() + "/" + lutemonB.getMaxHealth() + "\n");
-        System.out.println(lutemonA.getName() + " (" + lutemonA.getColor() + ") attacks " + lutemonB.getName() + "(" + lutemonB.getColor() + ")\n");
-        lutemonA.attack(lutemonB);
-        if (lutemonB.isAlive()) {
-            System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") manages to escape death.\n");
-        } else {
-            System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") gets defeated.\n");
-            System.out.println(lutemonA.getName() + " (" + lutemonA.getColor() +" ) wins the battle and was rewarded an experience point");
-            lutemonA.levelUp();
-            lutemonB.addLoss();
-            break;
+
+        while (lutemonA.isAlive() && lutemonB.isAlive()) {
+            System.out.println("1: " + lutemonA.getName() + " (" + lutemonA.getColor() + ") att: " + lutemonA.getAttack() + "; def: " + lutemonA.getDefense() + "; exp:" + lutemonA.getExperience() + "; health: " + lutemonA.getHealth() + "/" + lutemonA.getMaxHealth() + "\n");
+            System.out.println("2: " + lutemonB.getName() + " (" + lutemonB.getColor() + ") att: " + lutemonB.getAttack() + "; def: " + lutemonB.getDefense() + "; exp:" + lutemonB.getExperience() + "; health: " + lutemonB.getHealth() + "/" + lutemonB.getMaxHealth() + "\n");
+            System.out.println(lutemonA.getName() + " (" + lutemonA.getColor() + ") attacks " + lutemonB.getName() + "(" + lutemonB.getColor() + ")\n");
+            lutemonA.attack(lutemonB);
+            if (lutemonB.isAlive()) {
+                System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") manages to escape death.\n");
+                Lutemon holdA = lutemonA;
+                lutemonA = lutemonB;
+                lutemonB = holdA;
+            } else {
+                System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") gets defeated.\n");
+                System.out.println(lutemonA.getName() + " (" + lutemonA.getColor() + " ) wins the battle and was rewarded an experience point");
+                lutemonA.levelUp();
+                lutemonB.addLoss();
+                BattleField.getInstance().removeLutemon(lutemonB);
+                lutemonB.resetHealth();
+                Home.getInstance().addLutemon(lutemonB);
+                System.out.println("The battle is over.\n");
+                System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") was sent back home");
+                adapter.notifyDataSetChanged();
+                break;
+            }
         }
-
-        System.out.println("2: " + lutemonB.getName() + " (" + lutemonB.getColor() + ") att: " + lutemonB.getAttack() + "; def: " + lutemonB.getDefense() + "; exp:" + lutemonB.getExperience() + "; health: " + lutemonB.getHealth() + "/" + lutemonB.getMaxHealth() + "\n");
-        System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") attacks " + lutemonA.getName() + "(" + lutemonA.getColor() + ")\n");
-        lutemonB.attack(lutemonA);
-
-        if (lutemonA.isAlive()) {
-            System.out.println(lutemonA.getName() + " (" + lutemonA.getColor() + ") manages to escape death.\n");
-        } else {
-            System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() +") wins the battle and was rewarded an experience point");
-            lutemonB.levelUp();
-            lutemonA.addLoss();
-            break;
-        }
-        System.out.println("1: " + lutemonA.getName() + "(" + lutemonA.getColor() + ") att: " + lutemonA.getAttack() + "; def: " + lutemonA.getDefense() + "; exp:" + lutemonA.getExperience() + "; health: " + lutemonA.getHealth() + "/" + lutemonA.getMaxHealth() + "\n");
-        System.out.println("2: " + lutemonB.getName() + "(" + lutemonB.getColor() + ") att: " + lutemonB.getAttack() + "; def: " + lutemonB.getDefense() + "; exp:" + lutemonB.getExperience() + "; health: " + lutemonB.getHealth() + "/" + lutemonB.getMaxHealth() + "\n");
     }
-        System.out.println("The battle is over.\n");
-    }
-
-
 
     public void leaveArena(View view) {
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
-
     }
 }

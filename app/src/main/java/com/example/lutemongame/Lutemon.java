@@ -69,6 +69,14 @@ public class Lutemon implements Serializable{
         return id;
     }
 
+    public int getLosses() {
+        return losses;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
     public void attack(Lutemon defender) {
         int bonus = (int) Math.random() * 2;
         int damage = this.attack + this.experience + bonus - defender.defense;
@@ -77,7 +85,9 @@ public class Lutemon implements Serializable{
     }
     public void receiveDamage(int damage) {
         this.health -= damage;
-        if (this.health < 0) this.health = 0;
+        if (this.health < 0) {
+            this.health = 0;
+        }
     }
     public boolean isAlive() {
         return this.health > 0;
