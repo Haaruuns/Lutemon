@@ -12,7 +12,25 @@ import java.util.ArrayList;
 public class SaveAndLoad {
 
     public static class TheWholeList implements Serializable {
-        public ArrayList<Lutemon> homeLutemons, battleFieldLutemons, trainingAreaLutemons;
+        private ArrayList<Lutemon> homeLutemons, battleFieldLutemons, trainingAreaLutemons;
+        public ArrayList<Lutemon> getHomeLutemons() {
+            return homeLutemons;
+        }
+        public ArrayList<Lutemon> getBattleFieldLutemons() {
+            return battleFieldLutemons;
+        }
+        public ArrayList<Lutemon> getTrainingAreaLutemons() {
+            return trainingAreaLutemons;
+        }
+        public void setHomeLutemons(ArrayList<Lutemon> homeLutemons) {
+            this.homeLutemons = homeLutemons;
+        }
+        public void setBattleFieldLutemons(ArrayList<Lutemon> battleFieldLutemons) {
+            this.battleFieldLutemons = battleFieldLutemons;
+        }
+        public void setTrainingAreaLutemons(ArrayList<Lutemon> trainingAreaLutemons) {
+            this.trainingAreaLutemons = trainingAreaLutemons;
+        }
     }
 
     public static String saveGame(Context context) {
@@ -25,9 +43,9 @@ public class SaveAndLoad {
         }
 
         TheWholeList theWholeList = new TheWholeList();
-        theWholeList.homeLutemons = Home.getInstance().getLutemons();
-        theWholeList.trainingAreaLutemons = TrainingArea.getInstance().getLutemons();
-        theWholeList.battleFieldLutemons = BattleField.getInstance().getLutemons();
+        theWholeList.setHomeLutemons(Home.getInstance().getLutemons());
+        theWholeList.setTrainingAreaLutemons(TrainingArea.getInstance().getLutemons());
+        theWholeList.setBattleFieldLutemons(BattleField.getInstance().getLutemons());
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemon.data",Context.MODE_PRIVATE));
             lutemonWriter.writeObject(theWholeList);
@@ -43,9 +61,9 @@ public class SaveAndLoad {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemon.data"));
             TheWholeList theWholeList =  (TheWholeList) lutemonReader.readObject();
             lutemonReader.close();
-            Home.getInstance().lutemons = theWholeList.homeLutemons;
-            TrainingArea.getInstance().lutemons = theWholeList.trainingAreaLutemons;
-            BattleField.getInstance().lutemons = theWholeList.battleFieldLutemons;
+            Home.getInstance().lutemons = theWholeList.getHomeLutemons();
+            TrainingArea.getInstance().lutemons = theWholeList.getTrainingAreaLutemons();
+            BattleField.getInstance().lutemons = theWholeList.getBattleFieldLutemons();
             return "Game loaded successfully!";
         } catch (FileNotFoundException e) {
             return "No saved game found.";
