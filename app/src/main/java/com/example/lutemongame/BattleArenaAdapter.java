@@ -21,12 +21,9 @@ public class BattleArenaAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
         return selectedLutemons;
     }
 
-
     public BattleArenaAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
-
-
     }
     @NonNull
     @Override
@@ -51,6 +48,7 @@ public class BattleArenaAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
         } else {
             holder.itemView.setBackgroundColor(Color.parseColor("#2B2D30"));
         }
+
         holder.itemView.setOnClickListener(v -> {
             if (selectedLutemons.contains(lutemon)) {
                 selectedLutemons.remove(lutemon);
@@ -60,7 +58,6 @@ public class BattleArenaAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
             notifyDataSetChanged();
         });
     }
-
 
 
 
