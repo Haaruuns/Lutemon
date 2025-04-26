@@ -77,10 +77,14 @@ public class Lutemon implements Serializable{
         return wins;
     }
 
-    public void attack(Lutemon defender) {
-        int bonus = (int) Math.random() * 2;
+    public int attack(Lutemon defender) {
+        if (Math.random() < 0.1) { // 10% mahis, et hyökkäys väistetään
+            return 0;
+        }
+        int bonus = (int) (Math.random() * 3);
         int damage = this.attack + this.experience + bonus - defender.defense;
         defender.receiveDamage(damage);
+        return damage;
 
     }
     public void receiveDamage(int damage) {
