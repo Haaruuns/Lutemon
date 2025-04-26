@@ -12,6 +12,16 @@ public class LutemonStorage {
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
     }
-    // Haluanko myöhemmin poistaa lutemonin jos haluan teen removeLutemon metodin
+    public void removeLutemon(Lutemon lutemon) {
+        lutemons.remove(lutemon);
+    }
+
+    public Lutemon getLutemonWithId(int id) {
+        for(Lutemon lutemon : lutemons) {
+            if (lutemon.getId() == id) {
+                return lutemon;
+            }
+        } return null;
+    }
 
 }

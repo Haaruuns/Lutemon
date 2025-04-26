@@ -117,9 +117,14 @@ public class StatsAttributeFragment extends Fragment {
             bars.add(new BarEntry(0, lutemon.getMaxHealth()));
         }
         if (lutemon.getDefense() > 0) {
-            bars.add(new BarEntry(1, lutemon.getDefense()));        }
+            bars.add(new BarEntry(1, lutemon.getDefense()));
+        }
         if (lutemon.getAttack() > 0) {
-            bars.add(new BarEntry(2, lutemon.getAttack()));        }
+            bars.add(new BarEntry(2, lutemon.getAttack()));
+        }
+        if (lutemon.getExperience() > 0) {
+            bars.add(new BarEntry(3,lutemon.getExperience()));
+        }
 
         if (bars.isEmpty()) {
             selectLutemonText.setText("");
@@ -130,14 +135,13 @@ public class StatsAttributeFragment extends Fragment {
             dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
             dataSet.setValueTextSize(20f);
 
-
             // BarChart will show the data
             BarData data = new BarData(dataSet);
             data.setBarWidth(0.7f);
             stats.setData(data);
             stats.setFitBars(true); // This will adjust the bars to fit well in the view
 
-            String[] labels = {"Health","Defence","Attack"};
+            String[] labels = {"Health","Defence","Attack", "Experience"};
 
             XAxis xAxis = stats.getXAxis(); // This will let me change the xAxis "names"
             xAxis.setValueFormatter(new IndexAxisValueFormatter(labels)); // "Health","Defence","Attack"
