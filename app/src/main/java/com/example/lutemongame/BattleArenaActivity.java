@@ -84,11 +84,9 @@ public class BattleArenaActivity extends AppCompatActivity {
                 break;
             }
         }
-    }
         lutemonA.resetHealth();
         lutemonB.resetHealth();
     }
-
 
 
     public void leaveArena(View view) {
@@ -96,3 +94,4 @@ public class BattleArenaActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
