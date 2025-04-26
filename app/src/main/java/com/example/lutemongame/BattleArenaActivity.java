@@ -53,7 +53,7 @@ public class BattleArenaActivity extends AppCompatActivity {
     }
     Lutemon lutemonA = selected.get(0);
     Lutemon lutemonB = selected.get(1);
-    log.setText("Follow the intense battle and the results from the terminal!");
+    log.setText("Follow the intense battle and see results from the terminal!");
 
         System.out.println("Preparing fighters " + lutemonA.getName() + " (" + lutemonA.getColor() + ")" + " and " + lutemonB.getName() + " (" + lutemonA.getColor() + ")");
 
@@ -88,7 +88,9 @@ public class BattleArenaActivity extends AppCompatActivity {
         System.out.println("1: " + lutemonA.getName() + "(" + lutemonA.getColor() + ") att: " + lutemonA.getAttack() + "; def: " + lutemonA.getDefense() + "; exp:" + lutemonA.getExperience() + "; health: " + lutemonA.getHealth() + "/" + lutemonA.getMaxHealth() + "\n");
         System.out.println("2: " + lutemonB.getName() + "(" + lutemonB.getColor() + ") att: " + lutemonB.getAttack() + "; def: " + lutemonB.getDefense() + "; exp:" + lutemonB.getExperience() + "; health: " + lutemonB.getHealth() + "/" + lutemonB.getMaxHealth() + "\n");
     }
-        System.out.println("The battle is over.\n");
+        lutemonA.resetHealth();
+        lutemonB.resetHealth();
+        System.out.println("The battle is over and both Lutemons are healed.\n");
     }
 
 

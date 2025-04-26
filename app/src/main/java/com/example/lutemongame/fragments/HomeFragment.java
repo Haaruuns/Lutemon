@@ -1,9 +1,12 @@
 package com.example.lutemongame.fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +16,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.lutemongame.BattleArenaAdapter;
 import com.example.lutemongame.BattleField;
+import com.example.lutemongame.FragmentAdapter;
 import com.example.lutemongame.Home;
 import com.example.lutemongame.Lutemon;
 import com.example.lutemongame.MainMenuActivity;
 import com.example.lutemongame.R;
 import com.example.lutemongame.TrainingArea;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,9 +33,11 @@ import com.example.lutemongame.TrainingArea;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-    private RadioGroup lutemonListGroup, addressGroup;
+    private RadioGroup addressGroup;
+    private FragmentAdapter adapter;
+    private RecyclerView rv;
     private Button transferBtn, backToMenu;
-    private TextView errorMessage, successMessage;
+    private TextView message;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,13 +52,14 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        lutemonListGroup = view.findViewById(R.id.ListLutemonsRG);
+        rv = view.findViewById(R.id.ListRV);
         addressGroup = view.findViewById(R.id.AddressRG);
         transferBtn = view.findViewById(R.id.TransferBtn);
         backToMenu = view.findViewById(R.id.BackBtn);
-        errorMessage = view.findViewById(R.id.Fail2);
-        successMessage = view.findViewById(R.id.Success2);
-        clearTheList();
+        message = view.findViewById(R.id.Message);
+        adapter = new FragmentAdapter(getContext(), Home.getInstance().getLutemons());
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
         backToMenu.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), MainMenuActivity.class);
@@ -57,59 +67,51 @@ public class HomeFragment extends Fragment {
         });
 
         transferBtn.setOnClickListener(v -> {
-            successMessage.setText("");
-            errorMessage.setText("");
-            int selectedLutemonId = lutemonListGroup.getCheckedRadioButtonId();
+            message.setText("");
+
             int selectedAddressId = addressGroup.getCheckedRadioButtonId();
 
-            if (selectedLutemonId == -1 || selectedAddressId == -1) {
-                errorMessage.setText("Please select a Lutemon and a destination before transferring.");
+            ArrayList<Lutemon> selectedLutemons = adapter.getSelected();
+
+            if (selectedLutemons.isEmpty() || (selectedAddressId == -1)) {
+                message.setBackgroundColor(Color.parseColor("#6FDE2D2D"));
+                message.setText("Please select atleast one Lutemon and a destination before transferring.");
                 return;
             }
 
-            RadioButton selectedLutemon = view.findViewById(selectedLutemonId);// No need for R.id because we generated the ID manually
-            if (selectedLutemon == null) {
-                errorMessage.setText("Please select a Lutemon and a destination before transferring.");
-                return;
-            }
-
-            int lutemonId = (int) selectedLutemon.getTag();
-
-            Lutemon lutemon = Home.getInstance().getLutemonWithId(lutemonId);
-
-            if (lutemon != null) {
+            for (Lutemon lutemon : selectedLutemons) {
                 Home.getInstance().removeLutemon(lutemon);
-
+                message.setBackgroundColor(Color.parseColor("#6F14A205"));
                 if (selectedAddressId == R.id.TrainingRb) {
                     TrainingArea.getInstance().addLutemon(lutemon);
                     lutemon.increaseExperience();
-                    successMessage.setText(lutemon.getName() + " is now training hard to get stronger!");
+                    message.setText("Lutemon(s) sent to training ground and are training hard to get stronger!");
                 } else {
                     BattleField.getInstance().addLutemon(lutemon);
-                    successMessage.setText(lutemon.getName() + " was sent to the battlefield. Let the battle begin!");
+                    message.setText("Lutemon(s) sent to the battlefield. Let the battle begin!");
                 }
+
             }
-            clearTheList();
+            adapter.setLutemons(Home.getInstance().getLutemons());
+            adapter.notifyDataSetChanged();
+            adapter.clearList();
+
         });
 
         return view;
     }
 
-    private void clearTheList(){
-        lutemonListGroup.removeAllViews();
-        for (Lutemon lutemon : Home.getInstance().getLutemons()){
-            RadioButton radioButton = new RadioButton(requireContext());
-            radioButton.setText(lutemon.getName() + " (" + lutemon.getColor() + ")");
-            radioButton.setId(View.generateViewId());
-            radioButton.setTag(lutemon.getId());
-            lutemonListGroup.addView(radioButton);
-        }
 
-    }
+
     @Override
     public void onResume() {
         super.onResume();
-        clearTheList();
+        message.setText("");
+        if (adapter != null) {
+            adapter.setLutemons(Home.getInstance().getLutemons());
+            adapter.notifyDataSetChanged();
+
+        }
     } // Updates the Fragment when the user switches between them
 
 }

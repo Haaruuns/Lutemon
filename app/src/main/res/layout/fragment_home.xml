@@ -6,12 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
+    <ImageView
+        android:id="@+id/Background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/activity_tausta" />
+
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="370dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lutemon_logo" />
+
     <Button
         android:id="@+id/TransferBtn"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="60dp"
         android:text="Transfer selected Lutemons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="314dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
+        android:background="#B4E9E1E1"
         app:layout_constraintBottom_toTopOf="@+id/TransferBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/ListRV">
+
 
         <RadioButton
             android:id="@+id/TrainingRb"
@@ -42,15 +70,6 @@
             android:text="To the Battle Arena" />
     </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/ListLutemonsRG"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/AddressRG"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/BackBtn"
         android:layout_width="wrap_content"
@@ -58,24 +77,38 @@
         android:text="Back To Menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TransferBtn" />
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+        app:layout_constraintTop_toBottomOf="@+id/TransferBtn"
+        app:layout_constraintVertical_bias="0.816" />
 
     <TextView
-        android:id="@+id/Success2"
+        android:id="@+id/Message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/TransferBtn"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/AddressRG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddressRG" />
+        android:background="#6FDE2D2D"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorLink="#A62B2B"
+        android:textStyle="bold|italic"
+        app:layout_constraintTop_toBottomOf="@+id/ListRV" />
 
-    <TextView
-        android:id="@+id/Fail2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/TransferBtn"
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ListRV"
+        android:layout_width="384dp"
+        android:layout_height="377dp"
+        android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddressRG" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
