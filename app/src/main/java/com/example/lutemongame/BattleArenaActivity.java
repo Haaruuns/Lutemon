@@ -45,6 +45,7 @@ public class BattleArenaActivity extends AppCompatActivity {
 
     public void beginBattle(View view) {
 
+
         ArrayList<Lutemon> selected = adapter.getSelected();
         log = findViewById(R.id.Log);
         if (selected.size() != 2) {
@@ -77,13 +78,18 @@ public class BattleArenaActivity extends AppCompatActivity {
                 BattleField.getInstance().removeLutemon(lutemonB);
                 lutemonB.resetHealth();
                 Home.getInstance().addLutemon(lutemonB);
-                System.out.println("The battle is over.\n");
+                System.out.println("The battle is over. and both Lutemons are healed.\n");
                 System.out.println(lutemonB.getName() + " (" + lutemonB.getColor() + ") was sent back home");
                 adapter.notifyDataSetChanged();
                 break;
             }
         }
     }
+        lutemonA.resetHealth();
+        lutemonB.resetHealth();
+    }
+
+
 
     public void leaveArena(View view) {
         Intent intent = new Intent(this, MainMenuActivity.class);

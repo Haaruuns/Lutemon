@@ -46,7 +46,4 @@ public class ListLutemonActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
     }
-    public void healLutemon(View view) {
-
-    }
 }
