@@ -59,8 +59,10 @@ public class BattleArenaAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
         });
     }
 
-
-
+    public void clearList() {
+        selectedLutemons.clear();
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return lutemons.size();
