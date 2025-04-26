@@ -131,4 +131,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button8" />
 
+    <ImageButton
+        android:id="@+id/MusicToggle"
+        style="@android:style/Widget.Material.ImageButton"
+        android:layout_width="64dp"
+        android:layout_height="60dp"
+        android:background="#81A6DEE9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_music_note_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

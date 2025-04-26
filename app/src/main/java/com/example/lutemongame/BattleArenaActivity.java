@@ -1,6 +1,7 @@
 package com.example.lutemongame;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,8 @@ public class BattleArenaActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new BattleArenaAdapter(getApplicationContext(), storage.getLutemons());
         rv.setAdapter(adapter);
+
+        MusicManager.startBattleMusic(this);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -147,6 +150,8 @@ public class BattleArenaActivity extends AppCompatActivity {
     public void leaveArena(View view) {
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
+        MusicManager.stopBattleMusic();
+        MusicManager.startBackground(this);
     }
 }
 

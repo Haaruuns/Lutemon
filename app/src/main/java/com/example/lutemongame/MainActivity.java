@@ -3,10 +3,12 @@ package com.example.lutemongame;
 import static kotlin.random.RandomKt.Random;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView tipText;
     private TextView loading;
+
     private String[] tips = {
             "Tip: Fight with your Lutemon to gain experience levels",
             "Tip: There are different color Lutemons, each color has its own statistics",
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        MusicManager.startBackground(this);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
