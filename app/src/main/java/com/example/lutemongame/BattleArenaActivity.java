@@ -97,14 +97,11 @@ public class BattleArenaActivity extends AppCompatActivity {
                 BattleField.getInstance().removeLutemon(lutemonB);
                 lutemonB.resetHealth();
                 Home.getInstance().addLutemon(lutemonB);
-                log.append("The battle is over, and both Lutemons are healed.\n");
-                log.append(lutemonB.getName() + " (" + lutemonB.getColor() + ") was sent back home!\n");
+                log.append("The battle is over, and " + lutemonB.getName() + " (" + lutemonB.getColor() + ") was sent back home and healed!\n");
                 adapter.notifyDataSetChanged();
                 break;
             }
         }
-        lutemonA.resetHealth();
-        lutemonB.resetHealth();
         adapter.clearList();
     }
     private String getColorSkill(Lutemon lutemonA, Lutemon lutemonB) {
