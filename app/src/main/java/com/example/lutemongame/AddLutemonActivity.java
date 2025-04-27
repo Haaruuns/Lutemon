@@ -75,6 +75,7 @@ public class AddLutemonActivity extends AppCompatActivity {
         String name = lutemonName.getText().toString();
         int id = radioGroup.getCheckedRadioButtonId(); // id returns -1 if the user has not selected any radio buttons.
         if (name.isEmpty() || id == -1) {
+            successMessage.setText("");
             errorMessage.setText("Failed attempt, make sure you've chosen your color and named your Lutemon");
             return;
         }
