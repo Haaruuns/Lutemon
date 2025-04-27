@@ -36,9 +36,6 @@ public class SaveAndLoad {
     public static String saveGame(Context context) {
         if(Home.getInstance().getLutemons().isEmpty() && TrainingArea.getInstance().getLutemons().isEmpty()
         && BattleField.getInstance().getLutemons().isEmpty()) {
-            context.deleteFile("lutemon.data");
-            // deletes old file if there is nothing to save.
-            // ASK dekan if this is a good idea
             return "No Lutemons to save.";
         }
 
