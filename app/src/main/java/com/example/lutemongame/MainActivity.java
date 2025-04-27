@@ -26,9 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView loading;
 
     private String[] tips = {
-            "Tip: Fight with your Lutemon to gain experience levels",
-            "Tip: There are different color Lutemons, each color has its own statistics",
-            "Tip: You can check the statistics of your Lutemon from the menu."
+            "Tip: Fight with your Lutemon to gain experience levels!",
+            "Tip: There are different color Lutemons, each color has its own unique set of skills!",
+            "Tip: You can check the statistics of your Lutemon from the menu!",
+            "Tip: Send your Lutemon to training to boost its experience!",
+            "Tip: You can save your progress anytime from the main menu"
     };
 
     @Override

@@ -2,6 +2,7 @@ package com.example.lutemongame;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -75,7 +76,10 @@ public class AddLutemonActivity extends AppCompatActivity {
         int id = radioGroup.getCheckedRadioButtonId(); // id returns -1 if the user has not selected any radio buttons.
         if (name.isEmpty() || id == -1) {
             errorMessage.setText("Failed attempt, make sure you've chosen your color and named your Lutemon");
-        } else if(id == R.id.BlackRadioButton) {
+            return;
+        }
+        name = name.substring(0, 1).toUpperCase() + name.substring(1);
+        if(id == R.id.BlackRadioButton) {
             Black black = new Black(name);
             Home.getInstance().addLutemon(black);
             successfulMessage(name);
@@ -100,6 +104,13 @@ public class AddLutemonActivity extends AppCompatActivity {
 
     public void successfulMessage(String name) {
         errorMessage.setText("");
+        lutemonName.setText("");
+        radioGroup.clearCheck();
+        blackLutemon.setVisibility(View.GONE);
+        whiteLutemon.setVisibility(View.GONE);
+        greenLutemon.setVisibility(View.GONE);
+        pinkLutemon.setVisibility(View.GONE);
+        orangeLutemon.setVisibility(View.GONE);
         successMessage.setText("Crafting successful! " + name + " was added to your team and is ready to fight!");
     }
 
